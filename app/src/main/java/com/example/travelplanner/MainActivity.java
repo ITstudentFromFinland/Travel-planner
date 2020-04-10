@@ -25,13 +25,17 @@ public class MainActivity extends AppCompatActivity {
       public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
           case R.id.navigation_home:
-            break;
+            Intent dash = new Intent(MainActivity.this, HomeActivity.class);
+            startActivity(dash);
 
           case R.id.navigation_dashboard:
-
+            Intent home = new Intent(MainActivity.this, HomeActivity.class);
+            startActivity(home);
             break;
 
           case R.id.navigation_notifications:
+            Intent notifi = new Intent(MainActivity.this, HomeActivity.class);
+            startActivity(notifi);
             break;
         }
         return false;
