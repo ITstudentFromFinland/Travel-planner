@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(dash);
 
           case R.id.navigation_dashboard:
-            Intent home = new Intent(MainActivity.this, HomeActivity.class);
+            Intent home = new Intent(MainActivity.this, MapsActivity.class);
             startActivity(home);
             break;
 
