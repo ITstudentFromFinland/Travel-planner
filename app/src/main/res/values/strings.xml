@@ -4,9 +4,22 @@
   <string name="title_dashboard">Explore the map</string>
   <string name="title_notifications">Profile</string>
 
-  <string name="welcome">Welcome to plan your next trip!</string>
+  <string name="welcome">Welcome to home page of Travel Planner!</string>
   <string name="title_activity_maps">Map</string>
-  <string name="link_to_trips">Here comes a link for creating new trip</string>
   <string name="profile">Here comes profile page</string>
   <string name="created_trips">Created trips appear here</string>
+
+  <string name="hello">Hello, FormActivity!</string>
+  <string name="form_name">Create and display a Form Activity</string>
+  <string name="btnClick">Create new trip</string>
+  <string name="formtitle">Create a trip</string>
+  <string name="formname">Name of the trip</string>
+  <string name="formpassenger1">Passenger 1</string>
+  <string name="formpassenger2">Passenger 2</string>
+  <string name="formpassenger3">Passenger 3</string>
+  <string name="formpassenger4">Passenger 4</string>
+  <string name="formpassenger5">Passenger 5</string>
+  <string name="feedbackbutton">Crate a trip</string>
+
+
 </resources>
