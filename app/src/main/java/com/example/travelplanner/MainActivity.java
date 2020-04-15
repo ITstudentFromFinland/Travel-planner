@@ -7,12 +7,14 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
   Button popupbut;
+  TextView receiver_trip;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -54,5 +56,11 @@ public class MainActivity extends AppCompatActivity {
         return false;
       }
     });
+
+    receiver_trip = (TextView) findViewById(R.id.list);
+
+    Intent intent = getIntent();
+    String str = intent.getStringExtra("trip_key");
+    receiver_trip.setText(str);
     }
   }

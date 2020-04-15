@@ -1,6 +1,7 @@
 package com.example.travelplanner;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -34,7 +35,21 @@ public class FormActivity extends Activity {
 
       @Override
       public void onClick(View v) {
-        String msg = editText.getText().toString();
+        String str = editText.getText().toString();
+        String str1 = editText2.getText().toString();
+        String str2 = editText3.getText().toString();
+        String str3 = editText4.getText().toString();
+        String str4 = editText5.getText().toString();
+
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        intent.putExtra("trip_key", str);
+        intent.putExtra("trip_key", str1);
+        intent.putExtra("trip_key", str2);
+        intent.putExtra("trip_key", str3);
+        intent.putExtra("trip_key", str4);
+        startActivity(intent);
+
+        /*String msg = editText.getText().toString();
         Toast.makeText(FormActivity.this, "Trip name is "+msg, Toast.LENGTH_SHORT).show();
 
         String msg2 = editText2.getText().toString();
@@ -48,7 +63,7 @@ public class FormActivity extends Activity {
 
         String msg5 = editText5.getText().toString();
         Toast.makeText(FormActivity.this, "Passenger 4 is "+msg5, Toast.LENGTH_SHORT).show();
-      }
+      */}
     });
     }
 
