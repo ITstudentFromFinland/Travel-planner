@@ -2,6 +2,7 @@ package com.example.travelplanner;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,46 +10,60 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class FormActivity extends Activity {
+  Button but1;
+  SharedPreferences sp;
+  SharedPreferences.Editor editor;
 
   EditText editText;
   EditText editText2;
   EditText editText3;
   EditText editText4;
   EditText editText5;
-  Button but1;
 
-  EditText tripID;
+  ///EditText tripID;
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     this.setContentView(R.layout.activity_form);
 
-    editText = (EditText)findViewById(R.id.editText);
-    editText2 = (EditText)findViewById(R.id.editText2);
-    editText3 = (EditText)findViewById(R.id.editText3);
-    editText4 = (EditText)findViewById(R.id.editText4);
-    editText5 = (EditText)findViewById(R.id.editText5);
-    but1 = (Button)findViewById(R.id.but1);
+    but1 = (Button) findViewById(R.id.but1);
+    editText = (EditText) findViewById(R.id.editText);
+    editText2 = (EditText) findViewById(R.id.editText2);
+    editText3 = (EditText) findViewById(R.id.editText3);
+    editText4 = (EditText) findViewById(R.id.editText4);
+    editText5 = (EditText) findViewById(R.id.editText5);
 
-    but1.setOnClickListener(new View.OnClickListener() {
+    sp = getSharedPreferences("TravelPlanner", MODE_PRIVATE);
+    editor = sp.edit();
+    if (sp.contains("name")) {
+      editText.setText(sp.getString("name", "null"));
+    }
+    if (sp.contains("name")) {
+      editText2.setText(sp.getString("name", "null"));
+    }
+    if (sp.contains("name")) {
+      editText3.setText(sp.getString("name", "null"));
+    }
+    if (sp.contains("name")) {
+      editText4.setText(sp.getString("name", "null"));
+    }
+    if (sp.contains("name")) {
+      editText5.setText(sp.getString("name", "null"));
+    }
+  }
+
+  public void createTrip(View view) {
+    if(view.getId() == R.id.but1) {
+      editor.putString("name", editText.getText().toString());
+      editor.commit();
+      Toast.makeText(getApplicationContext(), "Trip saved", Toast.LENGTH_LONG).show();
+    }
+  }
+    /*but1.setOnClickListener(new View.OnClickListener() {
 
       @Override
-      public void onClick(View v) {
-        String str = editText.getText().toString();
-        String str1 = editText2.getText().toString();
-        String str2 = editText3.getText().toString();
-        String str3 = editText4.getText().toString();
-        String str4 = editText5.getText().toString();
-
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        intent.putExtra("trip_key", str);
-        intent.putExtra("trip_key", str1);
-        intent.putExtra("trip_key", str2);
-        intent.putExtra("trip_key", str3);
-        intent.putExtra("trip_key", str4);
-        startActivity(intent);
-
+      public void onClick(View v) {*/
         /*String msg = editText.getText().toString();
         Toast.makeText(FormActivity.this, "Trip name is "+msg, Toast.LENGTH_SHORT).show();
 
@@ -62,27 +77,8 @@ public class FormActivity extends Activity {
         Toast.makeText(FormActivity.this, "Passenger 3 is "+msg4, Toast.LENGTH_SHORT).show();
 
         String msg5 = editText5.getText().toString();
-        Toast.makeText(FormActivity.this, "Passenger 4 is "+msg5, Toast.LENGTH_SHORT).show();
-      */}
-    });
+        Toast.makeText(FormActivity.this, "Passenger 4 is "+msg5, Toast.LENGTH_SHORT).show();*/
+      }
+   /* });
     }
-
-  public void addEvent(View view) {
-    DBHelper dbHandler = new DBHelper(this, null, null, 1);
-    int id = Integer.parseInt(tripID.getText().toString());
-    String title = editText.getText().toString();
-    String passenger1 = editText2.getText().toString();
-    String passenger2 = editText3.getText().toString();
-    String passenger3 = editText4.getText().toString();
-    String passenger4 = editText5.getText().toString();
-    DisplayEvent event = new DisplayEvent(id, title, passenger1, passenger2, passenger3, passenger4);
-
-    dbHandler.addHandler(event);
-    tripID.setText("");
-    editText.setText("");
-    editText2.setText("");
-    editText3.setText("");
-    editText4.setText("");
-    editText5.setText("");
-  }
-}
+}*/

@@ -6,10 +6,6 @@
   android:background="#ffffff"
   android:gravity="center">
 
-  <ScrollView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-
   <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -29,7 +25,7 @@
         android:text="@string/formtitle"
         android:gravity="center"
         android:layout_marginTop="15dp"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:textStyle="bold"
         android:textColor="#000000"/>
 
@@ -40,7 +36,9 @@
         android:hint="@string/formname"
         android:textColor="#000000"
         android:textColorHint="#000000"
-        android:layout_marginTop="10dp"  />
+        android:layout_marginTop="10dp"
+        android:importantForAutofill="no"
+        android:inputType="text" />
 
       <EditText
         android:layout_width="match_parent"
@@ -49,7 +47,9 @@
         android:hint="@string/formpassenger1"
         android:textColor="#000000"
         android:textColorHint="#000000"
-        android:layout_marginTop="10dp"  />
+        android:layout_marginTop="10dp"
+        android:importantForAutofill="no"
+        android:inputType="text" />
 
       <EditText
         android:layout_width="match_parent"
@@ -58,7 +58,9 @@
         android:hint="@string/formpassenger2"
         android:textColor="#000000"
         android:textColorHint="#000000"
-        android:layout_marginTop="10dp"  />
+        android:layout_marginTop="10dp"
+        android:importantForAutofill="no"
+        android:inputType="text" />
 
       <EditText
         android:layout_width="match_parent"
@@ -67,7 +69,9 @@
         android:hint="@string/formpassenger3"
         android:textColor="#000000"
         android:textColorHint="#000000"
-        android:layout_marginTop="10dp"  />
+        android:layout_marginTop="10dp"
+        android:importantForAutofill="no"
+        android:inputType="text" />
 
       <EditText
         android:layout_width="match_parent"
@@ -76,7 +80,9 @@
         android:hint="@string/formpassenger4"
         android:textColor="#000000"
         android:textColorHint="#000000"
-        android:layout_marginTop="10dp"  />
+        android:layout_marginTop="10dp"
+        android:importantForAutofill="no"
+        android:inputType="text" />
 
       <LinearLayout
         android:layout_width="match_parent"
@@ -90,9 +96,8 @@
           android:layout_height="wrap_content"
           android:text="@string/feedbackbutton"
           android:id="@+id/but1"
-          android:onClick="addEvent"/>
+          android:onClick="createTrip"/>
       </LinearLayout>
     </LinearLayout>
   </LinearLayout>
-  </ScrollView>
 </LinearLayout>
