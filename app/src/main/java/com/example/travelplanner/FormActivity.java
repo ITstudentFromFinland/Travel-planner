@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class FormActivity extends Activity {
   Button but1;
@@ -41,9 +40,10 @@ public class FormActivity extends Activity {
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString("value", value);
         editor.apply();
+
         Intent intent = new Intent(FormActivity.this, MainActivity.class);
         startActivity(intent);
-     }
+      }
    });
   }
 }

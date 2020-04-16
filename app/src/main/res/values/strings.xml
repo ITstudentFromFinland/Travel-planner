@@ -12,7 +12,9 @@
   <string name="hello">Hello, FormActivity!</string>
   <string name="form_name">Create and display a Form Activity</string>
   <string name="btnClick">Create new trip</string>
+  <string name="btnShow">Show my trips</string>
   <string name="formtitle">Create a trip</string>
+  <string name="tripId">Trip number (id)</string>
   <string name="formname">Name of the trip</string>
   <string name="formpassenger1">Passenger 1</string>
   <string name="formpassenger2">Passenger 2</string>
