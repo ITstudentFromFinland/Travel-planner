@@ -3,7 +3,9 @@ package com.example.travelplanner;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -55,5 +57,10 @@ public class MainActivity extends AppCompatActivity {
         return false;
       }
     });
+
+    TextView textView = findViewById(R.id.list);
+    SharedPreferences sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE);
+    String value = sharedPreferences.getString("value","");
+    textView.setText(value);
     }
   }

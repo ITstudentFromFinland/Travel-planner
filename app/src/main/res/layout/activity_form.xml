@@ -95,8 +95,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="@string/feedbackbutton"
-          android:id="@+id/but1"
-          android:onClick="createTrip"/>
+          android:id="@+id/but1"/>
       </LinearLayout>
     </LinearLayout>
   </LinearLayout>
