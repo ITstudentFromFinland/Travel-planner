@@ -8,10 +8,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-  //information of database
-  private static final int DATABASE_VERSION = 1;
-  private static final String DATABASE_NAME = "tripdetails.db";
+  //Table name
   public static final String TABLE_NAME = "Trips";
+
+  //Table columns
   public static final String COLUMN_ID = "TripID";
   public static final String COLUMN_TRIP = "TripName";
   public static final String COLUMN_PASSENGER1 = "Passenger1";
@@ -19,21 +19,32 @@ public class DBHelper extends SQLiteOpenHelper {
   public static final String COLUMN_PASSENGER3 = "Passenger3";
   public static final String COLUMN_PASSENGER4 = "Passenger4";
 
-  public DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-    super(context, DATABASE_NAME, factory, DATABASE_VERSION);
+  //Database Information
+  private static final String DATABASE_NAME = "Trips.db";
+
+  //Database version
+  private static final int DATABASE_VERSION = 1;
+
+  public DBHelper(Context context) {
+    super(context, DATABASE_NAME, null, DATABASE_VERSION);
+
+  /*public DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+    super(context, DATABASE_NAME, factory, DATABASE_VERSION);*/
   }
 
+  //Creating table query
   @Override
   public void onCreate(SQLiteDatabase db) {
-    String CREATE_TRAINING_TABLE = "CREATE TABLE " +
-      TABLE_NAME + "(" + COLUMN_ID + " INTEGER PRIMARY KEY," + COLUMN_TRIP + " TEXT, " + COLUMN_PASSENGER1 + " TEXT, " +
+    String CREATE_TRIP_TABLE = "CREATE TABLE " +
+      TABLE_NAME + "(" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_TRIP + " TEXT NOT NULL, " + COLUMN_PASSENGER1 + " TEXT, " +
       COLUMN_PASSENGER2 + " TEXT, " + COLUMN_PASSENGER3 + " TEXT, " + COLUMN_PASSENGER4 + " TEXT " + ")";
-    db.execSQL(CREATE_TRAINING_TABLE);
+    db.execSQL(CREATE_TRIP_TABLE);
   }
 
   @Override
   public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-    db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);onCreate(db);
+    db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+    onCreate(db);
 }
 
   public String loadHandler() {
