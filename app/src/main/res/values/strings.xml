@@ -15,13 +15,22 @@
   <string name="btnShow">Show my trips</string>
   <string name="formtitle">Create a trip</string>
   <string name="tripId">Trip number (id)</string>
-  <string name="formname">Name of the trip</string>
+  <string name="formname">City of the trip</string>
   <string name="formpassenger1">Passenger 1</string>
   <string name="formpassenger2">Passenger 2</string>
   <string name="formpassenger3">Passenger 3</string>
   <string name="formpassenger4">Passenger 4</string>
   <string name="formpassenger5">Passenger 5</string>
   <string name="feedbackbutton">Crate a trip</string>
+  <string name="title_activity_modify_trip">ModifyTrip</string>
+  <!-- Strings used for fragments for navigation -->
+  <string name="first_fragment_label">First Fragment</string>
+  <string name="second_fragment_label">Second Fragment</string>
+  <string name="next">Next</string>
+  <string name="previous">Previous</string>
+
+  <string name="btn_update">Update</string>
+  <string name="btn_delete">Delete</string>
 
 
 </resources>

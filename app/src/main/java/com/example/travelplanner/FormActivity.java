@@ -2,48 +2,60 @@ package com.example.travelplanner;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.view.View.OnClickListener;
 
-public class FormActivity extends Activity {
-  Button but1;
+public class FormActivity extends Activity implements OnClickListener {
 
-  EditText editText;
-  EditText editText2;
-  EditText editText3;
-  EditText editText4;
-  EditText editText5;
+  private Button addTodoBtn;
+  private EditText tripEditText;
+  private EditText passenger1EditText;
+  private EditText passenger2EditText;
+  private EditText passenger3EditText;
+  private EditText passenger4EditText;
 
-  ///EditText tripID;
+  private DBManager dbManager;
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+
+    setTitle("Add Trip");
     this.setContentView(R.layout.activity_form);
 
-    but1 = (Button) findViewById(R.id.but1);
-    editText = (EditText) findViewById(R.id.editText);
-    editText2 = (EditText) findViewById(R.id.editText2);
-    editText3 = (EditText) findViewById(R.id.editText3);
-    editText4 = (EditText) findViewById(R.id.editText4);
-    editText5 = (EditText) findViewById(R.id.editText5);
+    tripEditText = (EditText) findViewById(R.id.trip_edittext);
+    passenger1EditText = (EditText) findViewById(R.id.passenger1_edittext);
+    passenger2EditText = (EditText) findViewById(R.id.passenger2_edittext);
+    passenger3EditText = (EditText) findViewById(R.id.passenger3_edittext);
+    passenger4EditText = (EditText) findViewById(R.id.passenger4_edittext);
 
-    but1.setOnClickListener(new View.OnClickListener() {
+    addTodoBtn = (Button) findViewById(R.id.add_trip);
 
-      @Override
-      public void onClick(View v) {
-        String value = editText.getText().toString().trim();
-        SharedPreferences sharedPref = getSharedPreferences("myKey", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("value", value);
-        editor.apply();
+    dbManager = new DBManager(this);
+    dbManager.open();
+    addTodoBtn.setOnClickListener(this);
+  }
 
-        Intent intent = new Intent(FormActivity.this, MainActivity.class);
-        startActivity(intent);
-      }
-   });
+  @Override
+  public void onClick(View v) {
+    switch (v.getId()) {
+      case R.id.add_trip:
+        final String trip = tripEditText.getText().toString();
+        final String passenger1 = passenger1EditText.getText().toString();
+        final String passenger2 = passenger2EditText.getText().toString();
+        final String passenger3 = passenger3EditText.getText().toString();
+        final String passenger4 = passenger4EditText.getText().toString();
+
+        dbManager.insert(trip, passenger1, passenger2, passenger3, passenger4);
+
+        Intent main = new Intent(FormActivity.this, MainActivity.class)
+          .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+        startActivity(main);
+        break;
+    }
   }
 }
